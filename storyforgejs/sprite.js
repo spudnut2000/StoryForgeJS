@@ -3,21 +3,21 @@ var Sprite = function(filename, is_pattern){
    this.image = null;
    this.pattern = null;
    this.TO_RADIANS = Math.PI/180;
-  
+
    if (filename != undefined && filename != "" && filename != null){
       this.image = new Image();
       this.image.src = filename;
-    
+
       if(is_pattern){
          this.pattern = Context.context.createPattern(this.image, 'repeat');
       }
       } else {
          console.log("Unable to load sprite.")
       }
-  
+
    //Draw
    this.draw = function(x, y, w, h){
-     
+
    //Pattern?
    if(this.pattern != null){
       Context.context.fillStyle = this.pattern;
@@ -30,9 +30,9 @@ var Sprite = function(filename, is_pattern){
          Context.context.drawImage(this.image, x, y, w, h);
       }
    }
-  
+
 };
-   
+
    //Rotate
    this.rotate = function(x, y, angle){
       Context.context.save();
@@ -41,7 +41,7 @@ var Sprite = function(filename, is_pattern){
       Context.context.drawImage(this.image, -(this.image.width/2), -(this.image.height/2));
       Context.context.restore();
    };
-  
-  
-  
+
+
+
 };
