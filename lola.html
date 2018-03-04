@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script src="storyforgejs/storyforge.js"></script>
+      <script>
+      
+      
+      //Game code
+      $(document).ready(function(){
+         //Init
+         Context = new HTML("game", 1280, 720);
+         var angle = 0;
+         
+         var LOLA = "src/img/lola.png";
+         
+         var s_lola = new Sprite(LOLA, false);
+         
+         
+         //"Update function"
+         setInterval(function(){
+         
+            //Background
+            Context.context.fillStyle = "#fff";
+            Context.context.fillRect(0, 0, 800, 800);
+            
+            //Draw the sprites
+            s_lola.draw(160,160);
+            
+         
+         }, 25);
+      });
+      
+      
+      
+      </script>
+   </head>
+   <canvas id="game" width="1280" height="720"></canvas>
+</html>

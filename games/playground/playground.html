@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="../../storyforgejs/storyforge.js"></script>
+   </head>
+   
+   <canvas id="game" width="1280" height="720" style="border: 1px; width: 1280px; height: 720px;"></canvas>
+   
+   <script>
+   
+   
+   //Game code
+   $(document).ready(function(){
+      //Init
+      Context.create("game");
+      
+      var ENDER_TARGET = "file:///home/chris/Projects/JS/StoryforgeJS/games/playground/src/img/ender_target.png";
+      var RED_BLOCK = "file:///home/chris/Projects/JS/StoryforgeJS/games/playground/src/img/red_block.png";
+      
+      var image = new Sprite(ENDER_TARGET, false);
+      var image2 = new Sprite(RED_BLOCK, false);
+      var pattern = new Sprite(RED_BLOCK, true);
+      var angle = 0;
+      
+      //"Update function"
+      setInterval(function(){
+      
+         //Background
+         Context.context.fillStyle = "#000000";
+         Context.context.fillRect(0, 0, 800, 800);
+         
+         //Draw the sprites
+         image.draw(0,0,64,64);
+         image.draw(0,74,256,32);
+         pattern.draw(160,160,256,180);
+         image.rotate(115, 160, angle += 4.0);
+         image2.rotate(115, 260, -angle/2);
+         
+      
+      }, 25);
+   });
+   
+   
+   
+   </script>
+   
+</html>
