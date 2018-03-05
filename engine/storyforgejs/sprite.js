@@ -1,8 +1,11 @@
-var Sprite = function(filename, is_pattern){
+
+
+var Sprite = function(filename, is_pattern, id){
    //Contruction
    this.image = null;
    this.pattern = null;
    this.TO_RADIANS = Math.PI/180;
+   this.id = id;
 
    if (filename != undefined && filename != "" && filename != null){
       this.image = new Image();
@@ -24,7 +27,7 @@ var Sprite = function(filename, is_pattern){
       Context.context.fillRect(x, y, w, h);
    } else {
       if (w == undefined || h == undefined){
-         Context.context.drawImage(this.image, x, y, this.image.width, this.image.height);
+         Context.context.drawImage(this.image, x, y, tile_size, tile_size);
       } else{
       //Stretched
          Context.context.drawImage(this.image, x, y, w, h);

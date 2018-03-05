@@ -10,9 +10,10 @@ document.writeln("<script type='text/javascript' src='storyforgejs/world.js'></s
 
 
 /*
-   Predefine Variables
+   Global Variables
 */
 var tick_speed = 25;
+var tile_size = 32;
 
 //Canvas
 
