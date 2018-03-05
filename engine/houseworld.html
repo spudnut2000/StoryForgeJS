@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>House</title>
+	<script src="storyforgejs/storyforge.js" charset="utf-8"></script>
 	<script type="text/javascript">
-		
+
 
 
 		//Variables
@@ -19,11 +20,67 @@
 		var lola = new Sprite("src/img/lola.png", false, 6);
 		var air = new Sprite("src/img/air.png", false, 7);
 		/*Map*/
-		
+		var map = [ 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+							  7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+								7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+								7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+								7, 7, 7, 7, 7, 7, 7, 1, 1, 7,
+								7, 7, 7, 7, 7, 7, 1, 7, 7, 1,
+								7, 7, 7, 7, 7, 7, 1, 7, 7, 1,
+								7, 7, 7, 7, 7, 7, 1, 7, 7, 1,
+								4, 4, 2, 2, 2, 2, 2, 2, 2, 2,
+								0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+							];
+
+		// Pre init
+		$(document).ready(function(){
+			Context = new HTML("game", 720, 720);
+		});
+
+		// Begin
+		$(window).on('load', function(){
+
+			// Variables
+			var mapIndex = 0;
+			var mapSizeX = 10;
+			var mapSizeY = 10;
+
+			//Draw map
+			for (var y = 0; y < mapSizeY; y++)
+			{
+				for (var x = 0; x < mapSizeX; x++, mapIndex++)
+				{
+					var tile_x = x * tile_size;
+					var tile_y = y * tile_size;
+					var tileType = map[mapIndex];
+
+					if(tileType == dirt.id)
+						dirt.draw(tile_x, tile_y);
+					else if(tileType == woodFrame.id)
+						woodFrame.draw(tile_x, tile_y);
+					else if(tileType == grass.id)
+						grass.draw(tile_x, tile_y);
+					else if(tileType == water.id)
+						water.draw(tile_x, tile_y);
+					else if(tileType == air.id)
+						air.draw(tile_x, tile_y);
+					else
+						enderTarget.draw(tile_x, tile_y);
+
+				}
+			}
+
+		});
+
+		// Update
+		setInterval(function(){
+
+		}, tick_speed);
+
 
 
 
 	</script>
 </head>
-	<canvas id="game"></canvas>
+	<canvas id="game" width="700" height="700"></canvas>
 </html>
