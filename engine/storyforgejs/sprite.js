@@ -1,5 +1,6 @@
-
-
+/*
+   Sprite.js
+*/
 var Sprite = function(filename, is_pattern, id){
    //Contruction
    this.image = null;
@@ -33,7 +34,6 @@ var Sprite = function(filename, is_pattern, id){
          Context.context.drawImage(this.image, x, y, w, h);
       }
    }
-
 };
 
    //Rotate
@@ -44,7 +44,4 @@ var Sprite = function(filename, is_pattern, id){
       Context.context.drawImage(this.image, -(this.image.width/2), -(this.image.height/2));
       Context.context.restore();
    };
-
-
-
 };
