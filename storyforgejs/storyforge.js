@@ -12,6 +12,7 @@ document.writeln("<script type='text/javascript' src='storyforgejs/world.js'></s
 /*
    Predefine Variables
 */
+var tick_speed = 25;
 
 //Canvas
 

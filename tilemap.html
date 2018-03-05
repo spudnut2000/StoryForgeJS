@@ -10,7 +10,24 @@
          // Define tiles
          var grass = new Sprite("src/img/grass.png", false);
          var dirt = new Sprite("src/img/dirt.png", false);
-         //Game code
+         var water = new Sprite("src/img/water.png", false);
+
+
+         //Define levels
+         var map = [ 1,1,1,1,0,0,1,1,1,1,
+         				0,0,0,0,0,0,0,0,0,0,
+         				0,0,0,0,0,0,0,0,0,0,
+         				0,0,0,0,0,0,0,0,0,0,
+         				0,0,0,0,0,0,0,0,0,0,
+         				0,0,0,0,0,0,0,0,0,0,
+         				0,0,0,0,0,0,0,0,0,0,
+         				0,0,0,0,0,0,0,0,0,0,
+         				0,0,0,0,0,0,0,0,0,0,
+         				1,1,1,1,1,1,1,1,1,1 
+         			];
+
+         var mapIndex = 0;
+
          $(document).ready(function(){
             //Init
             Context = new HTML("game", 1280, 720);
@@ -18,36 +35,37 @@
          //On load
          $(window).on('load', function(){
 
-
-           for (var x = 0; x < 20; x++)
-           {
-             var tile_x = x * def_tile_size;
-             if(Math.floor(Math.random()*2) == 0)
-             {
-               dirt.draw(tile_x, def_tile_size*10.25, def_tile_size, def_tile_size);
-             } else {
-               grass.draw(tile_x, def_tile_size*10.25, def_tile_size, def_tile_size);
-             }
-           }
-
-
-
-            // for (var y = 0; y < 12; y++)
-            // {
-            //    for (var x = 0; x < 20; x++)
-            //    {
-            //       var tile_x = x * def_tile_size;
-            //       var tile_y = y * def_tile_size;
-            //       if (Math.floor(Math.random()*2) == 0)
-            //       {
-            //          dirt.draw(tile_x, tile_y, def_tile_size, def_tile_size);
-            //       } else
-            //       {
-            //          grass.draw(tile_x, tile_y, def_tile_size, def_tile_size);
-            //       }
-            //    }
-            // }
+            
          });
+
+
+         // Update
+         setInterval(function(){
+
+         	var mapIndex = 0;
+
+         	for (var y = 0; y < 10; y++)
+            {
+               for (var x = 0; x < 10; x++, mapIndex++)
+               {
+                  var tile_x = x * def_tile_size;
+                  var tile_y = y * def_tile_size;
+
+                  var tileType = map[mapIndex];
+
+                  if (tileType == 0)
+                  {
+                     water.draw(tile_x, tile_y, def_tile_size, def_tile_size);
+                  } else
+                  {
+                     dirt.draw(tile_x, tile_y, def_tile_size, def_tile_size);
+                  }
+               }
+            }
+
+         }, 1000);
+
+
       </script>
    </head>
    <canvas id="game" width="1280" height="720"></canvas>
