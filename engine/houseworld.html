@@ -19,18 +19,22 @@
 		var enderTarget = new Sprite("src/img/ender_target.png", false, 5);
 		var lola = new Sprite("src/img/lola.png", false, 6);
 		var air = new Sprite("src/img/air.png", false, 7);
+		var door = new Sprite("src/img/door.png", false, 8);
+		var darkAir = new Sprite("src/img/dark.png", false, 9);
 		/*Map*/
 		var map = [ 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
 							  7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
 								7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-								7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-								7, 7, 7, 7, 7, 7, 7, 1, 1, 7,
-								7, 7, 7, 7, 7, 7, 1, 7, 7, 1,
-								7, 7, 7, 7, 7, 7, 1, 7, 7, 1,
-								7, 7, 7, 7, 7, 7, 1, 7, 7, 1,
-								4, 4, 2, 2, 2, 2, 2, 2, 2, 2,
-								0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+								7, 7, 7, 7, 7, 7, 1, 1, 1, 7,
+								7, 7, 7, 7, 7, 1, 9, 9, 9, 1,
+								7, 7, 7, 7, 7, 1, 9, 9, 9, 1,
+								7, 7, 7, 7, 7, 8, 9, 9, 9, 8,
+								7, 7, 7, 7, 7, 8, 9, 9, 9, 8,
+								4, 4, 4, 2, 2, 2, 2, 2, 2, 2,
+								4, 4, 0, 0, 0, 0, 0, 0, 0, 0
 							];
+
+
 
 		// Pre init
 		$(document).ready(function(){
@@ -64,6 +68,12 @@
 						water.draw(tile_x, tile_y);
 					else if(tileType == air.id)
 						air.draw(tile_x, tile_y);
+					else if(tileType == redBlock.id)
+						redBlock.draw(tile_x, tile_y);
+					else if(tileType == door.id)
+						door.draw(tile_x, tile_y);
+					else if(tileType == darkAir.id)
+						darkAir.draw(tile_x, tile_y);
 					else
 						enderTarget.draw(tile_x, tile_y);
 
