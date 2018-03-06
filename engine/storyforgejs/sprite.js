@@ -44,7 +44,7 @@ var Sprite = function(filename, is_pattern, id){
 };
 
    /*Draw animated*/
-   this.drawAnimated = function(x, y, spriteSheetIndex)
+   this.drawAnimated = function(x, y, spriteSheetIndex, spriteSheetRows, size)
    {
       if (spriteSheetIndex.length != undefined)
       {
@@ -57,9 +57,9 @@ var Sprite = function(filename, is_pattern, id){
             this.animationCurrentFrame = spriteSheetIndex[this.animationIndexCounter];
          }
          
-         var res = i2xy (this.animationCurrentFrame, 1);  
+         var res = i2xy (this.animationCurrentFrame, spriteSheetRows);  
 
-         Context.context.drawImage(this.image, res[0]*tile_size, res[1]*tile_size, tile_size, tile_size, x, y, tile_size, tile_size);
+         Context.context.drawImage(this.image, res[0]*size, res[1]*size, size, size, x, y, size, size);
       }
    };
 
