@@ -20,3 +20,9 @@ var HTML = function(canvasID, width, height)
    $(this.canvas).attr({style: 'width:' + this.width + 'px;' + 'height:' + this.height + 'px;' + 'border:3px dotted black;' + 'margin: auto;' });
 
 };
+
+var cls = function(){
+  Context.context.save();
+  Context.context.clearRect(0,0, Context.canvas.width, Context.canvas.height);
+  Context.context.restore();
+}
