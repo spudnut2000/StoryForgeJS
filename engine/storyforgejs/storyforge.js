@@ -1,4 +1,5 @@
 document.writeln("<script src='storyforgejs/jquery-3.3.1.js'></script>");
+document.writeln("<script src='storyforgejs/maths.js'></script>");
 document.writeln("<script src='storyforgejs/input.js'></script>");
 document.writeln("<script src='storyforgejs/util.js'></script>");
 document.writeln("<script src='storyforgejs/audio.js'></script>");

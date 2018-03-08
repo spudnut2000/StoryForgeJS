@@ -108,14 +108,10 @@ var Sprite = function(filename, is_pattern, id){
    }
 
    this.hitBottom = function(){
-      var rockbottom = Context.canvas.height - 128;
+      var rockbottom = Context.canvas.height - 32;
       if (this.y > rockbottom) {
             this.y = rockbottom;
             this.gravitySpeed = 0;
         }
    };
-
-
-
-
 };
