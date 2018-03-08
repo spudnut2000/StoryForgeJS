@@ -5,8 +5,10 @@ var KEY_DOWN = 40;
 
 var KEY_SPACE = 32;
 
+var KEY_P = 112;
 
-var kState = [false, false, false, false];
+
+var keyState = [false, false, false, false, false, false];
 
 function initKeyboard()
 {
@@ -22,6 +24,8 @@ function initKeyboard()
 			kState[3] = true;
 		if (e.keyCode == KEY_SPACE)
 			kState[4] = true;
+		if (e.kCode == KEY_P)
+			kState[5] = true;
 		
 
 	});
@@ -38,6 +42,8 @@ function initKeyboard()
 			kState[3] = false;
 		if (e.keyCode == KEY_SPACE)
 			kState[4] = false;
+		if (e.kCode == KEY_P)
+			kState[5] = false;
 
 	});
 }

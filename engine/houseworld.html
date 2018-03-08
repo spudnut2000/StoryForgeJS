@@ -50,6 +50,8 @@
 					4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 
 
+		var tmp = 0;
+
 
 		// Pre init
 		$(document).ready(function(){
@@ -83,8 +85,6 @@
 
 			villager.applyGravity();
 			mastrometer.applyGravity();
-
-			//console.log('KEY_LEFT = ' + kState[0] + ' KEY_RIGHT = ' + kState[1] + ' KEY_UP = ' + kState[2] + ' KEY_DOWN = ' + kState[3]);
 
 
 			//Draw map
@@ -146,6 +146,14 @@
 					villager.gravitySpeed = 0.5;
 				}
 			}
+
+			if(kState[5]){
+				console.log("P");
+				map[tmp] = dirt;
+				tmp += 1;
+			}
+
+			console.log(kState[0]);
 
 			// animated sprites
 			
