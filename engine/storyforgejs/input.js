@@ -15,17 +15,17 @@ function initKeyboard()
 	$(document).keydown(function(e){
 
 		if(e.keyCode == KEY_LEFT)
-			kState[0] = true;
+			keyState[0] = true;
 		if(e.keyCode == KEY_RIGHT)
-			kState[1] = true;
+			keyState[1] = true;
 		if(e.keyCode == KEY_UP)
-			kState[2] = true;
+			keyState[2] = true;
 		if(e.keyCode == KEY_DOWN)
-			kState[3] = true;
+			keyState[3] = true;
 		if (e.keyCode == KEY_SPACE)
-			kState[4] = true;
+			keyState[4] = true;
 		if (e.kCode == KEY_P)
-			kState[5] = true;
+			keyState[5] = true;
 		
 
 	});
@@ -33,17 +33,17 @@ function initKeyboard()
 	$(document).keyup(function(e){
 
 		if(e.keyCode == KEY_LEFT)
-			kState[0] = false;
+			keyState[0] = false;
 		if(e.keyCode == KEY_RIGHT)
-			kState[1] = false;
+			keyState[1] = false;
 		if(e.keyCode == KEY_UP)
-			kState[2] = false;
+			keyState[2] = false;
 		if(e.keyCode == KEY_DOWN)
-			kState[3] = false;
+			keyState[3] = false;
 		if (e.keyCode == KEY_SPACE)
-			kState[4] = false;
+			keyState[4] = false;
 		if (e.kCode == KEY_P)
-			kState[5] = false;
+			keyState[5] = false;
 
 	});
 }
