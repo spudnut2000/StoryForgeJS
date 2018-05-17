@@ -8,6 +8,17 @@ var Sprite = function(filename, is_pattern, id){
    this.TO_RADIANS = Math.PI/180;
    this.id = id;
 
+
+   /*Physics*/
+   //Gravity
+   this.x = 0;
+   this.y = 0;
+   this.speedX = 0;
+   this.speedY = 2;
+   this.gravity = 0.05;
+   this.gravitySpeed = 0.05;
+   this.isJumping = false;
+
    /*Spritesheet vars*/
    this.animationDelay = 0;
    this.animationIndexCounter = 0;
@@ -70,5 +81,37 @@ var Sprite = function(filename, is_pattern, id){
       Context.context.rotate(angle * this.TO_RADIANS);
       Context.context.drawImage(this.image, -(this.image.width/2), -(this.image.height/2));
       Context.context.restore();
+   };
+
+
+   /*Physics*/
+   this.applyGravity = function(){
+      this.gravitySpeed += this.gravity;
+      this.x += this.speedX;
+      this.y += this.speedY + this.gravitySpeed;
+      this.hitBottom();
+   };
+
+   this.accelY = function(amount){
+      this.gravity = amount;
+   };
+   this.accelX = function(amount){
+      this.speedX = amount;
+   };
+   this.jump = function(amount){
+      if(!this.isJumping){
+         this.isJumping = true;
+         this.gravity = -amount;
+      } else {
+         this.isJumping = false;
+      }
+   }
+
+   this.hitBottom = function(){
+      var rockbottom = Context.canvas.height - 32;
+      if (this.y > rockbottom) {
+            this.y = rockbottom;
+            this.gravitySpeed = 0;
+        }
    };
 };
